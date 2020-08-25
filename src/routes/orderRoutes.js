@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const Order=require ("../Database/OrderSchema");
 const Dish = require("../Database/DishSchema");
+const Customer = require("../Database/CustomerSchema");
 
 router.get("/order",async function (req, res) {
   try {
@@ -59,5 +60,6 @@ router.patch("/order/:id",async function (req, res) {
     res.status(400).send(error.message);
   }
 });
+
 
 module.exports = router;

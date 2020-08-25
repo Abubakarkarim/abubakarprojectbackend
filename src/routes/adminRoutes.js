@@ -35,4 +35,5 @@ router.post("/emp", AdminAuth, async (req, res) => {
   }
 });
 
+
 module.exports = router;

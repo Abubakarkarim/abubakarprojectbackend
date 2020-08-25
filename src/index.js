@@ -81,6 +81,38 @@ app.delete("/dish", async function (req, res) {
     res.status(400).send(error.message)
   }
 });
+app.delete("/dish/:id", async function (req, res) {
+
+    console.log("in");
+    let id = req.params.id;
+    // res.send(req.body.name)
+    await Dish.findByIdAndDelete(id)
+return res.send("deleted")
+   //await Dish.save()
+   
+ 
+});
+app.post("/customer", async (req, res) => {
+  console.log("in");
+    let customer = await new Customer();
+    customer.name=req.body.name
+    customer.phNo=req.body.price
+    customer.address=req.body.page
+    customer.email=req.body.page
+  
+    await customer.save();
+  
+    res.send("heheh");
+    
+  });
+app.get("/customer/data", async (req, res) => {
+  console.log("in");
+    let customer = await Customer.find();
+   
+  
+    res.send(customer);
+    
+  });
 app.patch("/dish/:id",async function (req, res) {
   const update = Object.keys(req.body);
   
